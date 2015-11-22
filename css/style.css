@@ -1,0 +1,120 @@
+body{
+    font-family: "Microsoft YaHei" ! important;
+}
+
+/* index html start ------------------------------------*/
+.index-bg{
+    background: url(../img/index-bg.png) no-repeat center center fixed;
+    background-size:100% 100%;
+}
+.index-box{
+    padding: 1.25em 0;
+}
+.right-box{
+    margin-left: 1.25em;
+}
+.row-box{
+    margin: 1.25em 0;
+}
+.box-bg{
+    background-color:#212121;
+    border: 0.0625em solid rgb(7, 0, 2);
+    box-shadow: 0px 0px 5px 0px rgba(7, 0, 2, 0.75);
+}
+.icon{
+    min-height: 3em;
+}
+.icon-a{
+    background: url(../img/icon/notes.png) no-repeat center;
+}
+.icon-b{
+    background: url(../img/icon/Flask-full.png) no-repeat center;
+}
+.icon-c{
+    background: url(../img/icon/Settings-alt.png) no-repeat center;
+}
+.icon-d{
+    background: url(../img/icon/Clipboard-alt.png) no-repeat center;
+}
+.icon-e{
+    background: url(../img/icon/Image.png) no-repeat center;
+}
+.icon-f{
+    background: url(../img/icon/Compose.png) no-repeat center;
+}
+.font-box{
+    padding-top: 0.75em;
+    color: #fff;
+    font-weight: 550;
+    letter-spacing: 0.125em;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+/* index html end --------------------------------------*/
+
+/* login html start ------------------------------------*/
+.login-bg{
+    background: url(../img/login-bg.png) no-repeat center center fixed;
+    background-color: #4caf50;
+    background-size: 100% 100%;
+}
+.logo-box{
+    padding-top: 2em;
+    text-align:center;
+}
+
+.logo{
+    height: 6.6875em;
+}
+.input-box{
+    margin: 1.8em 0;
+}
+.input-bg{
+    background-color: #fff;
+    border-radius: 5em;
+    -moz-border-radius: 5em;
+    min-height: 2.2em;
+}
+.input-bg-true{
+    border: 1px solid rgb(56, 142, 60);
+}
+.input-bg-false{
+    border: 1px solid #ff5722;
+}
+.block-a{
+    float: left;
+    width: 15%;
+}
+.block-b{
+    float: right;
+    width: 85%;
+}
+.input-bg input{
+    width: 100%;
+    min-height: 2.2em;
+    border:0;
+}
+.input-icon{
+    padding-top:0.3em;
+    text-align: center;
+    line-height: 2.1em;
+}
+.login-btn{
+    color: #fff;
+    border: 0;
+    border-radius: 5em;
+    -moz-border-radius: 5em;
+    background-color: #ff5722;
+    letter-spacing: 0.125em;
+}
+.sign-up{
+    padding-right: 1em;
+    text-align: right;
+    color: #fff;
+    font-size: 0.875em;
+    letter-spacing: 0.125em;
+}
+.sign-up a{
+    color: #ff5722;
+}

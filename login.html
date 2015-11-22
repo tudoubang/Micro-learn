@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body class="login-bg">
+    <div data-role="page">
+        <div role="main" class="ui-content">
+            <div class="ui-grid-solo logo-box">
+                <div class="ui-block-a">
+                    <img src="img/logo.png" class="logo">
+                </div>
+            </div>
+            <!-- username -->
+            <div class="ui-grid-solo input-box">
+                <div class="ui-grid-solo input-bg input-bg-true" id="inputUser">
+                    <div class="ui-block-a">
+                        <div class="ui-grid-d">
+                            <div class="block-a input-icon">
+                                <img src="img/user.png">
+                            </div>
+                            <div class="block-b">
+                                <input type="text" id="user" placeholder="用户名/手机号码/邮箱" onchange="varietyUser()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- password -->
+            <div class="ui-grid-solo input-box">
+                <div class="ui-grid-solo input-bg input-bg-true" id="inputPwd">
+                    <div class="ui-block-a">
+                        <div class="ui-grid-d">
+                            <div class="block-a input-icon">
+                                <img src="img/password.png">
+                            </div>
+                            <div class="block-b">
+                                <input type="password" id="password" placeholder="密码" onchange="varietyPwd()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- button -->
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <button class="ui-btn login-btn" onclick="submit()">登录</button>
+                </div>
+            </div>
+            <!-- 登录验证 -->
+            <script type="text/javascript">
+                var inputUser = document.getElementById("inputUser");
+                var inputPwd = document.getElementById("inputPwd");
+                function submit(){
+                    var user = document.getElementById("user");
+                    var password = document.getElementById("password");
+
+                    if(verification(user, password) === true){
+
+                    }
+                }
+                function verification(a,b){
+                    if(a.value ===""){
+                        inputUser.className = inputUser.className.replace("input-bg-true","input-bg-false");
+                        return false;
+                    }else if(b.value === ""){
+                        inputPwd.className = inputPwd.className.replace("input-bg-true","input-bg-false");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+                function varietyUser(){
+                    inputUser.className = inputUser.className.replace("input-bg-false","input-bg-true");
+                }
+                function varietyPwd(){
+                    inputPwd.className = inputPwd.className.replace("input-bg-false","input-bg-true");
+                }
+            </script>
+            <!-- sign up -->
+            <div class="ui-grid-solo">
+                <div class="ui-block-a sign-up">
+                    <font>还没有账号？请&nbsp;<a href="#">&nbsp;注册&nbsp;</a></font>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
