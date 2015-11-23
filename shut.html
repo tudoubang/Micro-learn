@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -10,8 +11,78 @@
 </head>
 <body>
     <div data-role="page" class="ui-page">
-        <div data-role="header" data-position="fixed"></div>
-        <div data-role="footer" data-position="fixed"></div>
+        <!-- header -->
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading" class="ui-title" aria-leve1="1">微测试</h1>
+            <a href="" data-role="button" role="button" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all"></a>
+        </div>
+        <!-- content-->
+        <div role="main" class="ui-content">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a text-c">
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a">
+                            <div class="ui-nodisc-icon"><!-- Class added to the wrapper -->
+                            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext ui-btn-b ui-btn-inline">Delete</a>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div class="shut-title"><span>1/4</span></div>
+                        </div>
+                        <div class="ui-block-c">
+                            <div class="ui-nodisc-icon"><!-- Class added to the wrapper -->
+                            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-r ui-btn-icon-notext ui-btn-b ui-btn-inline">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-solo shut-box">
+                <div class="ui-block-a">
+                    <img src="img/huaxue.png" width="100%">
+                </div>
+                <div class="ui-block-a">
+                    <div class="shut-btn-box">
+                        <button class="shut-btn ui-btn ui-btn-b">闯关</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div data-role="footer" data-position="fixed">
+            <div class="ui-grid-b">
+                <div class="ui-block-a text-c icon-fover">
+                    <div class="ui-grid-solo  footer-p">
+                        <div class="ui-block-a">
+                            <img src="css/images/footer/Home.png" class="footer-icon">
+                        </div>
+                        <div class="ui-block-a">
+                            <span>首页</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b text-c icon-fover">
+                    <div class="ui-grid-solo footer-p">
+                        <div class="ui-block-a">
+                            <img src="css/images/footer/Bookmark.png" class="footer-icon">
+                        </div>
+                        <div class="ui-block-a">
+                            <span>资源库</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-c text-c icon-fover">
+                    <div class="ui-grid-solo footer-p">
+                        <div class="ui-block-a">
+                            <img src="css/images/footer/User.png" class="footer-icon">
+                        </div>
+                        <div class="ui-block-a">
+                            <span>个人中心</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

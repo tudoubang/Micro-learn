@@ -6,8 +6,34 @@
         <title>照片墙</title>
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/nice.css">
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $('body').on("click",'.heart',function()
+                {
+                    var A=$(this).attr("id");
+                    var B=A.split("like");
+                    var messageID=B[1];
+                    var C=parseInt($("#likeCount"+messageID).html());
+                    $(this).css("background-position","")
+                    var D=$(this).attr("rel");
+
+                    if(D === 'like')
+                    {
+                        $(this).addClass("heartAnimation").attr("rel","unlike");
+
+                    }
+                    else
+                    {
+                        $(this).removeClass("heartAnimation").attr("rel","like");
+                        $(this).css("background-position","left");
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
       <div data-role="page">
@@ -28,14 +54,12 @@
                       </div>
                   </div>
                   <div class="ui-grid-rolo">
-                      <div class="ui-block-a" style="width:80%">
+                      <div class="ui-block-a" style="width:70%">
                           <div class="title-box photo-text">
                             <span>药剂</span>
                           </div>
                           <div class="love-box">
-                            <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                            </div>
+                              <div class="heart " id="like1" rel="like"></div>
                         </div>
                       </div>
                   </div>
@@ -53,15 +77,13 @@
                         </div>
                     </div>
                     <div class="ui-grid-rolo">
-                        <div class="ui-block-a" style="width:80%">
+                        <div class="ui-block-a" style="width:70%">
                             <div class="title-box photo-text">
-                              <span>药剂</span>
+                                <span>药剂</span>
                             </div>
                             <div class="love-box">
-                              <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                  <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                              </div>
-                          </div>
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -80,14 +102,12 @@
                       </div>
                   </div>
                   <div class="ui-grid-rolo">
-                      <div class="ui-block-a" style="width:80%">
+                      <div class="ui-block-a" style="width:70%">
                           <div class="title-box photo-text">
                             <span>药剂</span>
                           </div>
                           <div class="love-box">
-                            <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                            </div>
+                              <div class="heart " id="like1" rel="like"></div>
                         </div>
                       </div>
                   </div>
@@ -105,15 +125,13 @@
                         </div>
                     </div>
                     <div class="ui-grid-rolo">
-                        <div class="ui-block-a" style="width:80%">
+                        <div class="ui-block-a" style="width:70%">
                             <div class="title-box photo-text">
-                              <span>药剂</span>
+                                <span>药剂</span>
                             </div>
                             <div class="love-box">
-                              <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                  <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                              </div>
-                          </div>
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -132,14 +150,12 @@
                       </div>
                   </div>
                   <div class="ui-grid-rolo">
-                      <div class="ui-block-a" style="width:80%">
+                      <div class="ui-block-a" style="width:70%">
                           <div class="title-box photo-text">
                             <span>药剂</span>
                           </div>
                           <div class="love-box">
-                            <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                            </div>
+                              <div class="heart " id="like1" rel="like"></div>
                         </div>
                       </div>
                   </div>
@@ -157,15 +173,13 @@
                         </div>
                     </div>
                     <div class="ui-grid-rolo">
-                        <div class="ui-block-a" style="width:80%">
+                        <div class="ui-block-a" style="width:70%">
                             <div class="title-box photo-text">
-                              <span>药剂</span>
+                                <span>药剂</span>
                             </div>
                             <div class="love-box">
-                              <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                  <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                              </div>
-                          </div>
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -184,14 +198,12 @@
                       </div>
                   </div>
                   <div class="ui-grid-rolo">
-                      <div class="ui-block-a" style="width:80%">
+                      <div class="ui-block-a" style="width:70%">
                           <div class="title-box photo-text">
                             <span>药剂</span>
                           </div>
                           <div class="love-box">
-                            <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                            </div>
+                              <div class="heart " id="like1" rel="like"></div>
                         </div>
                       </div>
                   </div>
@@ -209,15 +221,13 @@
                         </div>
                     </div>
                     <div class="ui-grid-rolo">
-                        <div class="ui-block-a" style="width:80%">
+                        <div class="ui-block-a" style="width:70%">
                             <div class="title-box photo-text">
-                              <span>药剂</span>
+                                <span>药剂</span>
                             </div>
                             <div class="love-box">
-                              <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                  <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                              </div>
-                          </div>
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -236,14 +246,12 @@
                       </div>
                   </div>
                   <div class="ui-grid-rolo">
-                      <div class="ui-block-a" style="width:80%">
+                      <div class="ui-block-a" style="width:70%">
                           <div class="title-box photo-text">
                             <span>药剂</span>
                           </div>
                           <div class="love-box">
-                            <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                            </div>
+                              <div class="heart " id="like1" rel="like"></div>
                         </div>
                       </div>
                   </div>
@@ -261,15 +269,13 @@
                         </div>
                     </div>
                     <div class="ui-grid-rolo">
-                        <div class="ui-block-a" style="width:80%">
+                        <div class="ui-block-a" style="width:70%">
                             <div class="title-box photo-text">
-                              <span>药剂</span>
+                                <span>药剂</span>
                             </div>
                             <div class="love-box">
-                              <div class="ui-nodisc-icon ui-alt-icon"><!-- Classes added to the wrapper -->
-                                  <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline">heart</a>
-                              </div>
-                          </div>
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -277,6 +283,55 @@
               </div>
             </div>
           </div>
+          <div class="ui-grid-a photo-box">
+            <!-- list 1 -->
+            <div class="ui-block-a">
+              <div class="ui-grid-rolo">
+                <div class="ui-block-a photo-l">
+                  <div class="ui-grid-rolo">
+                      <div class="ui-block-a text-c">
+                        <img src="img/huaxue.png" class="photo-wh">
+                      </div>
+                  </div>
+                  <div class="ui-grid-rolo">
+                      <div class="ui-block-a" style="width:70%">
+                          <div class="title-box photo-text">
+                            <span>药剂</span>
+                          </div>
+                          <div class="love-box">
+                              <div class="heart " id="like1" rel="like"></div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- list 2 -->
+            <div class="ui-block-b">
+              <div class="ui-block-a photo-h">
+                <div class="ui-grid-rolo">
+                  <div class="ui-block-a photo-l">
+                    <div class="ui-grid-rolo">
+                        <div class="ui-block-a text-c">
+                          <img src="img/huaxue.png" class="photo-wh">
+                        </div>
+                    </div>
+                    <div class="ui-grid-rolo">
+                        <div class="ui-block-a" style="width:70%">
+                            <div class="title-box photo-text">
+                                <span>药剂</span>
+                            </div>
+                            <div class="love-box">
+                                <div class="heart " id="like1" rel="like"></div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- list end -->
         </div>
         <div data-role="footer" data-position="fixed">
