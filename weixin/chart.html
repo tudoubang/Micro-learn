@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>微测评</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/Chart.js"></script>
+		<script>
+			var url = decodeURI(location.search);
+			var rands = function() {
+				return Math.round(Math.random() * 100)
+			};
+			window.onload = function() {
+				var data = {
+					labels: ["工作方法", "独立工作能力", "解决问题的能力", "责任心", "合作能力", "交流能力"],
+					datasets: [{
+						fillColor: "rgba(4,178,235,0.1)",
+						strokeColor: "rgba(4,178,235,1)",
+						pointColor: "rgba(43,55,64,1)",
+						pointStrokeColor: "#04b2eb",
+						data: [rands(), rands(), rands(), rands(), rands(), rands()]
+					}]
+				}
+				var ctx = document.getElementById("myChart").getContext("2d");
+				document.getElementById("fname").innerHTML = '<p><span style="font-size: 1.4em;font-weight: bold;">' + url.split("&name=")[1] + '</span></p><p><span>' + url.split("&name=")[0].split("?number=")[1] + '</span></p>'
+				window.myRadar = new Chart(ctx).Radar(data);
+			}
+			function onlist() {
+					var list = "";
+					$.getJSON("js/name.json", function(data) {
+						for (var i = 0; i < data.fname.length; i++) {
+							list += '<li><a href="chart.html?number=' + data.fname[i].number + '&name=' + data.fname[i].name + '" data-ajax="false"><h2>' + data.fname[i].name + '</h2></a></li>';
+						}
+						document.getElementById("listes").innerHTML = list;
+						$("#listes").listview('refresh');
+					});
+				}
+		</script>
+	</head>
+
+	<body>
+		<div data-role="page" id="page">
+			<div data-role="header" data-theme="b">
+				<h1>微测评</h1>
+				<a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b">菜单</a>
+				<a href="#popupBasic" data-rel="popup" data-transition="pop" data-position-to="selector" data-icon="user" data-iconpos="notext" data-theme="b" onclick="onlist()">学生</a>
+			</div>
+
+			<div id="content" data-role="content" style="padding:0em;">
+				<div class="zx-bg-width  zx-bg-padding">
+					<div class="zx-bg-width zx-bg-margin">
+						<div class="zx-tx-bg"></div>
+					</div>
+					<div id="fname" class="zx-bg-width zx-bg-margin" style="text-align: center;">
+
+					</div>
+					<div data-corners="true" class="zx-bg-width zx-can-bord zx-text">
+						<canvas id="myChart" width="300" height="250"></canvas>
+					</div>
+				</div>
+				<div class="zx-bg-width  zx-bg-padding">
+					<p></p>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Copyright © Ia微平台 </h4>
+			</div>
+			<div data-role="panel" id="nav" data-position="left" data-dispaly="push" data-theme="b">
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="搜索栏目" data-inset="true">
+					<li>
+						<a href="index.html" data-ajax="false" data-transition="turn">微学习</a>
+					</li>
+					<li>
+						<a href="list.html" data-ajax="false" data-transition="pop">微考试</a>
+					</li>
+					<li>
+						<a href="evalu.html" data-ajax="false" data-transition="pop">微测评</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="popup" id="popupBasic" data-overlay-theme="b" data-theme="b" style="min-width: 3em;padding: 1em;">
+				<ul id="listes" data-role="listview" data-filter="true" data-filter-placeholder="搜索" data-inset="true" >
+
+				</ul>
+			</div>
+		</div>
+		<!--/page结束-->
+	</body>
+
+</html>

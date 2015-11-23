@@ -118,3 +118,68 @@ body{
 .sign-up a{
     color: #ff5722;
 }
+.pop{
+    color:red;
+}
+
+/* login html end --------------------------------------*/
+
+/* photo html start ------------------------------------*/
+.header-bg{
+    background-color: #4caf50;
+}
+.text-c{
+    text-align:center;
+}
+.footer-p{
+    font-size: 0.875em;
+    padding: 0.625em 0;
+}
+.footer-icon{
+    height: 1.375em;
+}
+.icon-fover{
+    background-color: #e9e9e9;
+}
+.icon-fover :active{
+    background-color: #dcdcdc;
+}
+.icon-fover:focus{
+    background-color: #388e3c;
+}
+.photo-l{
+    border:1px solid #d4d4d4;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-color: #e9e9e9;
+}
+.photo-r{
+    border:1px solid #d4d4d4;
+    border-radius: 0.25em;
+    margin-left: 0.5em;
+    background-color: #e9e9e9;
+}
+
+.photo-wh{
+    width: 100%;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius:0.25em;
+}
+.photo-text{
+    margin:.8em 0;
+}
+.title-box{
+    margin-left: 1em;
+    width: 70%;
+    float: left;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.love-box{
+    width: 10%;
+    float: right;
+}
+.photo-box{
+    margin-top: .5em;
+}

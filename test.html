@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>微考试</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/Chart.js"></script>
+        <script>
+            window.onload = function() {
+                    var list = "";
+                    showLoader();
+                    $.getJSON("js/library.json", function(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            list += "<fieldset data-role=\"controlgroup\">" + "<legend>" + data[i].title + "</legend>"
+                            for (var j = 0; j < data[i].answer.length; j++) {
+                                if (j === 0) {
+                                    list += "<label for=\"answer" + i + j + "\">" + data[i].answer[j].a + "</label>" + "<input type=\"radio\" name=\"gender" + i + "\" id=\"answer" + i + j + "\" value=\"a\">";
+                                }
+                                if (j === 1) {
+                                    list += "<label for=\"answer" + i + j + "\">" + data[i].answer[j].b + "</label>" + "<input type=\"radio\" name=\"gender" + i + "\" id=\"answer" + i + j + "\" value=\"b\">";
+                                }
+                                if (j === 2) {
+                                    list += "<label for=\"answer" + i + j + "\">" + data[i].answer[j].c + "</label>" + "<input type=\"radio\" name=\"gender" + i + "\" id=\"answer" + i + j + "\" value=\"c\">";
+                                }
+                                if (j === 3) {
+                                    list += "<label for=\"answer" + i + j + "\">" + data[i].answer[j].d + "</label>" + "<input type=\"radio\" name=\"gender" + i + "\" id=\"answer" + i + j + "\" value=\"d\">";
+                                }
+                            }
+                            list += "</fieldset>";
+                        }
+                        document.getElementById("data").innerHTML = list;
+                        hideLoader();
+                        $.mobile.pageContainer.trigger("create");
+                    });
+                }
+                //显示加载器
+
+            function showLoader() {
+                $.mobile.loading(
+                    "show", {
+                        text: "载入中",
+                        textVisible: true,
+                        theme: "e",
+                        textonly: false,
+                        html: ""
+                    });
+            }
+
+            function hideLoader() {
+                $.mobile.loading("hide");
+            }
+            var right = 0; //答对题目数
+            var err = 0; //答错题目数
+            var nulls = 0; //未答题目数
+            var checks = ""; //单选状态
+            var errs = []; //答错题目
+             //判断是否答对，统计答对、答错、答错题目
+            function formes() {
+                    $.getJSON("js/library.json", function(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var obj = {};
+                            checks = $('input[name="gender' + i + '"]:checked').val();
+                            if (checks === undefined) {
+                                nulls = nulls + 1;
+                            } else {
+                                if (checks === "a") {
+                                    if (data[i].answer[0].err === "yes") {
+                                        right = right + 1;
+                                    } else {
+                                        err = err + 1;
+                                        obj.title = data[i].title;
+                                    }
+                                } else if (checks === "b") {
+                                    if (data[i].answer[1].err === "yes") {
+                                        right = right + 1;
+                                    } else {
+                                        err = err + 1;
+                                        obj.title = data[i].title;
+                                    }
+                                } else if (checks === "c") {
+                                    if (data[i].answer[2].err === "yes") {
+                                        right = right + 1;
+                                    } else {
+                                        err = err + 1;
+                                        obj.title = data[i].title;
+                                    }
+                                } else if (checks === "a") {
+                                    if (data[i].answer[3].err === "yes") {
+                                        right = right + 1;
+                                    } else {
+                                        err = err + 1;
+                                        obj.title = data[i].title;
+                                    }
+                                }
+                            }
+                            errs.push(obj);
+                        }
+                        if (nulls === 0) {
+                            document.getElementById("message").innerHTML = "<p>确认交卷?</p>";
+                        } else {
+                            document.getElementById("message").innerHTML = "<p>还有" + nulls + "道题未做，是否继续交卷?</p>";
+                        }
+                    });
+                }
+                //答对答错对比图
+
+            function rightErr() {
+                window.location = "stati.html?right="+right+"&nulls="+nulls+"&err="+err+"&errs="+errs;
+            }
+            //清空
+            function clearNulls(){
+                right = 0; //答对题目数
+                err = 0; //答错题目数
+                nulls = 0; //未答题目数
+            }
+        </script>
+    </head>
+
+    <body>
+        <div data-role="page" id="items">
+            <div data-role="header" data-position="fixed">
+                <h1>微考试</h1>
+                 <a href="#" data-rel="back" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Back</a>
+                 <a href="#logs" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="check" onclick="formes()">交卷</a>
+            </div>
+            <div role="main" class="ui-content">
+                <div class="zx-bg-width zx-bg-padding" id="data">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <h4>Copyright © Ia微平台 </h4>
+            </div>
+            <div data-role="popup" id="logs" data-overlay-theme="b" data-theme="b" style="min-width: 20em;">
+                <div data-role="header" data-theme="a">
+                    <h3>交卷</h3>
+                </div>
+                <div role="main" class="ui-content">
+                    <div class="ui-grid-a" id="message">
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <a href="#pages" data-role="button" data-ajax="false" onclick="rightErr()">确定</a>
+                        </div>
+                        <div class="ui-block-b">
+                            <a href="" data-role="button" data-rel="back" onclick="clearNulls()">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+              <div class="ui-grid-b">
+                <div class="ui-block-a text-c icon-fover">
+                  <div class="ui-grid-solo  footer-p">
+                    <div class="ui-block-a">
+                      <img src="css/images/footer/Home.png" class="footer-icon">
+                    </div>
+                    <div class="ui-block-a">
+                      <span>首页</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-block-b text-c icon-fover">
+                  <div class="ui-grid-solo footer-p">
+                    <div class="ui-block-a">
+                      <img src="css/images/footer/Bookmark.png" class="footer-icon">
+                    </div>
+                    <div class="ui-block-a">
+                      <span>资源库</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-block-c text-c icon-fover">
+                  <div class="ui-grid-solo footer-p">
+                    <div class="ui-block-a">
+                      <img src="css/images/footer/User.png" class="footer-icon">
+                    </div>
+                    <div class="ui-block-a">
+                      <span>个人中心</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!--/page结束-->
+    </body>
+</html>

@@ -1,0 +1,10 @@
+.div-page-width{
+	width:100%;
+}
+.div-width{
+	float: left;
+	width: 45%;
+	height: 20em;
+	margin: 1em;
+	background-color: #005599;
+}

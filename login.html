@@ -52,16 +52,24 @@
                     <button class="ui-btn login-btn" onclick="submit()">登录</button>
                 </div>
             </div>
+            <div data-role="popup" id="popupBasic" class="pop" style="display:none">
+                <p>用户名或密码错误！</p>
+            </div>
             <!-- 登录验证 -->
             <script type="text/javascript">
                 var inputUser = document.getElementById("inputUser");
                 var inputPwd = document.getElementById("inputPwd");
+                var popupBasic = document.getElementById("popupBasic");
                 function submit(){
                     var user = document.getElementById("user");
                     var password = document.getElementById("password");
 
                     if(verification(user, password) === true){
-
+                        if(user.value === "john" && password.value ==="123456"){
+                            window.location.href = "index.html";
+                        }else{
+                            popupBasic.style.display = "block"
+                        }
                     }
                 }
                 function verification(a,b){
@@ -77,9 +85,11 @@
                 }
                 function varietyUser(){
                     inputUser.className = inputUser.className.replace("input-bg-false","input-bg-true");
+                    popupBasic.style.display = "none"
                 }
                 function varietyPwd(){
                     inputPwd.className = inputPwd.className.replace("input-bg-false","input-bg-true");
+                    popupBasic.style.display = "none"
                 }
             </script>
             <!-- sign up -->

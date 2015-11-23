@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>微测评</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+		<div data-role="page" id="page">
+			<div id="content" data-role="content" style="padding:0em;">
+				<div class="ui-grid-a zx-bg zx-bg-padding" style="width:100%;height: 12em;">
+					<div class="zx-bg-width">
+						<a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b">菜单</a>
+					</div>
+					<div class="zx-bg-width zx-text">
+						<h1>微测评</h1>
+					</div>
+					<div class="zx-bg-width zx-text">
+						<p>快乐的学习方式</p>
+					</div>
+				</div>
+				<div class="zx-bg-width  zx-bg-padding">
+					<div class="zx-bg-width">
+						sdfsadfasdf
+					</div>
+					<div class="zx-bg-width zx-text">
+						<div id="main" style="width:50%;height: 400px;"></div>
+					</div>
+				</div>
+				<script src="js/echarts.js"></script>
+				<script>
+					require.config({
+						paths: {
+							echarts: './js'
+						}
+					});
+					require(
+						[
+							'echarts',
+							'echarts/chart/radar' // 使用柱状图就加载bar模块，按需加载
+						],
+						function(ec) {
+							// 基于准备好的dom，初始化echarts图表
+							var myChart = ec.init(document.getElementById('main'));
+							var option = {
+								title: {
+									text: '罗纳尔多 vs 舍普琴科',
+									subtext: '完全实况球员数据'
+								},
+								tooltip: {
+									trigger: 'axis',
+								},
+								legend: {
+									x: 'center',
+									data: ['罗纳尔多', '舍普琴科']
+								},
+								toolbox: {
+									show: true,
+									feature: {
+										mark: {
+											show: true
+										},
+										dataView: {
+											show: true,
+											readOnly: false
+										},
+										restore: {
+											show: true
+										},
+										saveAsImage: {
+											show: true
+										}
+									}
+								},
+								calculable: true,
+								polar: [{
+									indicator: [{
+										text: '进攻',
+										max: 100
+									}, {
+										text: '防守',
+										max: 100
+									}, {
+										text: '体能',
+										max: 100
+									}, {
+										text: '速度',
+										max: 100
+									}, {
+										text: '力量',
+										max: 100
+									}, {
+										text: '技巧',
+										max: 100
+									}],
+									radius: 130
+								}],
+								series: [{
+									name: '完全实况球员数据',
+									type: 'radar',
+									itemStyle: {
+										normal: {
+											areaStyle: {
+												type: 'default'
+											}
+										}
+									},
+									data: [{
+										value: [97, 42, 88, 94, 90, 86],
+										name: '舍普琴科'
+									}, {
+										value: [97, 32, 74, 95, 88, 92],
+										name: '罗纳尔多'
+									}]
+								}]
+							};
+							// 为echarts对象加载数据 
+							myChart.setOption(option);
+						}
+					);
+				</script>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Copyright © Ia微平台 </h4>
+			</div>
+			<div data-role="panel" id="nav" data-position="left" data-dispaly="push" data-theme="b">
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="搜索栏目" data-inset="true">
+					<li>
+						<a href="index.html" data-ajax="false" data-transition="turn">微学习</a>
+					</li>
+					<li>
+						<a href="list.html" data-ajax="false" data-transition="pop">微考试</a>
+					</li>
+					<li>
+						<a href="evalu.html" data-ajax="false" data-transition="pop">微测评</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="page" id="items0">
+			sadfjsadjfoiasfd
+		</div>
+		<!--/page结束-->
+	</body>
+
+</html>

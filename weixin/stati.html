@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>微考试</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/Chart.js"></script>
+		<script>
+			var url = window.location.search;
+			var right = 0; //答对题目数
+			var err = 0; //答错题目数
+			var nulls = 0; //未答题目数
+			var errs = []; //答错题目
+			if (url.length != 0) {
+				right = url.split("right=")[1].split("&nulls=")[0];
+				err = url.split("err=")[1].split("&errs=")[0];
+				nulls = url.split("nulls=")[1].split("&err=")[0];
+			}
+			var pieData = [{
+				value: err,
+				color: "#F7464A",
+				highlight: "#FF5A5E",
+				label: "答错题目数"
+			}, {
+				value: right,
+				color: "#46BFBD",
+				highlight: "#5AD3D1",
+				label: "答对题目数"
+			}, {
+				value: nulls,
+				color: "#FDB45C",
+				highlight: "#FFC870",
+				label: "未答题目数"
+			}];
+			window.onload = function() {
+				var ctx = document.getElementById("chartarea").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(pieData);
+				var listdata ="";
+				listdata = '<div class="ui-block-a zx-div">'
+								+'<div class="zx-div-float zx-div-width zx-div-bg0"></div>'
+								+'<div class="zx-div-float">错题:'+err+'</div>'
+							+'</div>'
+							+'<div class="ui-block-a zx-div">'
+								+'<div class="zx-div-float zx-div-width zx-div-bg1"></div>'
+								+'<div class="zx-div-float">对题:'+right+'</div>'
+							+'</div>'
+							+'<div class="ui-block-a zx-div">'
+								+'<div class="zx-div-float zx-div-width zx-div-bg2"></div>'
+								+'<div class="zx-div-float">未答:'+nulls+'</div>'
+							+'</div>';
+				document.getElementById("datalist").innerHTML = listdata;
+				$.mobile.pageContainer.trigger("create");
+			}
+		</script>
+	</head>
+
+	<body>
+		<div data-role="page" id="pages">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<h1>微考试</h1>
+				<a href="#nav" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b">菜单</a>
+			</div>
+			<div data-role="content" style="padding:0em;">
+				<div class="ui-grid-a">
+					<div class="zx-bg-width zx-bg-margin">
+						<div class="ui-block-a">
+							<canvas id="chartarea" width="170" height="170"></canvas>
+						</div>
+						<div class="ui-block-b zx-div-top" id="datalist">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Copyright © Ia微平台 </h4>
+			</div>
+			<div data-role="panel" id="nav" data-position="left" data-dispaly="push" data-theme="b">
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="搜索栏目" data-inset="true">
+					<li>
+						<a href="index.html" data-ajax="false" data-transition="turn">微学习</a>
+					</li>
+					<li>
+						<a href="list.html" data-ajax="false" data-transition="pop">微考试</a>
+					</li>
+					<li>
+						<a href="evalu.html" data-ajax="false" data-transition="pop">微测评</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
