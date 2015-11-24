@@ -8,13 +8,32 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>关卡</title>
+    <script>
+        $(document).ready(function(){
+            $(".ui-icon-carat-r").click(function(){
+                $("#tab1").slideUp(500);
+                $("#tab2").slideDown(800);
+                $(".title").html("2/2");
+                $("#btn1").removeClass("shut-display");
+            });
+            $(".ui-icon-carat-l").click(function(){
+                $("#tab1").slideDown(800);
+                $("#tab2").slideUp(500);
+                $(".title").html("1/2");
+                $("#btn1").addClass("shut-display");
+            });
+        });
+        function opens(urls){
+            window.location.href = urls + '.html';
+        }
+    </script>
 </head>
 <body>
     <div data-role="page" class="ui-page">
         <!-- header -->
         <div data-role="header" data-position="fixed">
             <h1 role="heading" class="ui-title" aria-leve1="1">微测试</h1>
-            <a href="" data-role="button" role="button" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all"></a>
+            <a href="#" data-rel="back" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Back</a>
         </div>
         <!-- content-->
         <div role="main" class="ui-content">
@@ -22,12 +41,12 @@
                 <div class="ui-block-a text-c">
                     <div class="ui-grid-b">
                         <div class="ui-block-a">
-                            <div class="ui-nodisc-icon"><!-- Class added to the wrapper -->
+                            <div id="btn1" class="ui-nodisc-icon shut-display"><!-- Class added to the wrapper -->
                             <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext ui-btn-b ui-btn-inline">Delete</a>
                             </div>
                         </div>
                         <div class="ui-block-b">
-                            <div class="shut-title"><span>1/4</span></div>
+                            <div class="shut-title"><span class="title">1/2</span></div>
                         </div>
                         <div class="ui-block-c">
                             <div class="ui-nodisc-icon"><!-- Class added to the wrapper -->
@@ -37,13 +56,27 @@
                     </div>
                 </div>
             </div>
-            <div class="ui-grid-solo shut-box">
-                <div class="ui-block-a">
-                    <img src="img/huaxue.png" width="100%">
+            <div id="tab1">
+                <div class="ui-grid-solo shut-box">
+                    <div class="ui-block-a">
+                        <img src="img/huaxue.png" width="100%">
+                    </div>
+                    <div class="ui-block-a">
+                        <div class="shut-btn-box">
+                            <button class="shut-btn ui-btn ui-btn-b" onclick="opens('test')">第 1 关</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="ui-block-a">
-                    <div class="shut-btn-box">
-                        <button class="shut-btn ui-btn ui-btn-b">闯关</button>
+            </div>
+            <div id="tab2" class="shut-display">
+                <div class="ui-grid-solo shut-box">
+                    <div class="ui-block-a">
+                        <img src="img/huaxue.png" width="100%">
+                    </div>
+                    <div class="ui-block-a">
+                        <div class="shut-btn-box">
+                            <button class="shut-btn ui-btn ui-btn-b" onclick="opens('tests')">第 2 关</button>
+                        </div>
                     </div>
                 </div>
             </div>

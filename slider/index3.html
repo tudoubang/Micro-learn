@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh" class="demo3 no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>jQuery和css3全屏背景模糊的轮播图插件-demo3_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		
+		<!-- Edit Below -->
+		<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.9.1/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.immersive-slider.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <link rel="stylesheet" type="text/css" href="css/immersive-slider.css" />
+	    <link rel="stylesheet" type="text/css" href="css/elusive-webfont.css" />
+	    <script src="js/modernizr.js"></script>
+	</head>
+	<body class="demo3">
+  
+	<div class="header">
+		<h1>jQuery Immersive Slider: Bounce Animation</h1>
+		<p>更多精彩内容请关注<a href="http://www.htmleaf.com/" target="_blank">jQuery之家</a></p>
+		<div class="menu">
+	  		<a href="index.html">Demo 1</a>
+	  		<a href="index2.html">Demo 2</a>
+	  		<a class="active" href="index3.html">Demo 3</a>
+	  		<a href="index4.html">Demo 4</a>
+	  		<a href="index5.html">Demo 5</a>
+	  	</div>
+	</div>
+  
+	<div class="main">
+    <div class="page_container">
+      <div id="immersive_slider">
+        <div class="slide" data-blurred="img/slide1_blurred.jpg">
+          <div class="content">
+            <h2>Immersive Slider</h2>
+            <p>It’s never been easier to watch Immersive Slider on the big screen
+            Send your favorite Immersive Slider videos from your Android phone or tablet to TV with the touch of a button. It’s easy. No wires, no setup, no nothing. Find out more here.</p>
+          </div>
+          <div class="image">
+            <img src="img/slide1.jpg" alt="Slider 1">
+          </div>
+        </div>
+        <div class="slide" data-blurred="img/slide2_blurred.jpg">
+          <div class="content">
+            <h2>Immersive Slider</h2>
+            <p>It’s never been easier to watch Immersive Slider on the big screen
+            Send your favorite Immersive Slider videos from your Android phone or tablet to TV with the touch of a button. It’s easy. No wires, no setup, no nothing. Find out more here.</p>
+          </div>
+          <div class="image">
+            <img src="img/slide2.jpg" alt="Slider 1">
+          </div>
+        </div>
+        <div class="slide" data-blurred="img/slide3_blurred.jpg">
+          <div class="content">
+            <h2>Immersive Slider</h2>
+            <p>It’s never been easier to watch Immersive Slider on the big screen
+            Send your favorite Immersive Slider videos from your Android phone or tablet to TV with the touch of a button. It’s easy. No wires, no setup, no nothing. Find out more here.</p>
+          </div>
+          <div class="image">
+            <img src="img/slide3.jpg" alt="Slider 1">
+          </div>
+        </div>
+        <div class="is-nav">
+          <a href="#" class="is-prev">&laquo;</a>
+          <a href="#" class="is-next">&raquo;</a>
+        </div>
+      </div>
+    </div>
+	</div>
+	<div class="benefits">
+    	<div class="page_container">
+	   
+	  </div>
+	</div>
+	<script type="text/javascript">
+	  $(document).ready( function() {
+	    $("#immersive_slider").immersive_slider({
+	      container: ".main",
+	      animation: "bounce",
+	      autoStart: false
+	    });
+	  });
+ 
+  	</script>
+		
+	</body>
+</html>

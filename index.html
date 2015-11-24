@@ -9,9 +9,7 @@
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript">
             function hrefs(urls){
-                if(urls !== "#"){
-                    window.location.href = urls +".html";
-                }
+                window.location.href = urls +".html";
             }
         </script>
     </head>
@@ -36,8 +34,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui-grid-b row-box" onclick="hrefs('test')">
-                    <div class="ui-block-a">
+                <div class="ui-grid-b row-box">
+                    <div class="ui-block-a"  onclick="hrefs('shut')">
                         <div class="ui-grid-solo box-bg index-box">
                             <div class="ui-block-a icon icon-c"></div>
                             <div class="ui-block-a font-box">
@@ -45,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ui-block-b right-box" onclick="hrefs('#')">
+                    <div class="ui-block-b right-box" onclick="hrefs('evalu')">
                         <div class="ui-grid-solo box-bg index-box">
                             <div class="ui-block-a icon icon-d"></div>
                             <div class="ui-block-a font-box">
@@ -54,8 +52,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui-grid-b row-box" onclick="hrefs('photo')">
-                    <div class="ui-block-a">
+                <div class="ui-grid-b row-box">
+                    <div class="ui-block-a"  onclick="hrefs('photo')">
                         <div class="ui-grid-solo box-bg index-box">
                             <div class="ui-block-a icon icon-e"></div>
                             <div class="ui-block-a font-box">

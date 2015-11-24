@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>微测评</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/Chart.js"></script>
+		<script>
+			var url = decodeURI(location.search);
+			var rands = function() {
+				return Math.round(Math.random() * 100)
+			};
+			window.onload = function() {
+				var data = {
+					labels: ["工作方法", "独立工作能力", "解决问题的能力", "责任心", "合作能力", "交流能力"],
+					datasets: [{
+						fillColor: "rgba(4,178,235,0.1)",
+						strokeColor: "rgba(4,178,235,1)",
+						pointColor: "rgba(43,55,64,1)",
+						pointStrokeColor: "#04b2eb",
+						data: [rands(), rands(), rands(), rands(), rands(), rands()]
+					}]
+				}
+				var ctx = document.getElementById("myChart").getContext("2d");
+				document.getElementById("fname").innerHTML = '<p><span style="font-size: 1.4em;font-weight: bold;">' + url.split("&name=")[1] + '</span></p><p><span>' + url.split("&name=")[0].split("?number=")[1] + '</span></p>'
+				window.myRadar = new Chart(ctx).Radar(data);
+			}
+			function onlist() {
+					var list = "";
+					$.getJSON("js/name.json", function(data) {
+						for (var i = 0; i < data.fname.length; i++) {
+							list += '<li><a href="chart.html?number=' + data.fname[i].number + '&name=' + data.fname[i].name + '" data-ajax="false"><h2>' + data.fname[i].name + '</h2></a></li>';
+						}
+						document.getElementById("listes").innerHTML = list;
+						$("#listes").listview('refresh');
+					});
+				}
+			//自我测评
+			function submits(){
+				var slider1 = $("#slider-1").val();
+				var slider2 = $("#slider-2").val();
+				var slider3 = $("#slider-3").val();
+				var slider4 = $("#slider-4").val();
+				var slider5 = $("#slider-5").val();
+				var slider6 = $("#slider-6").val();
+				var datas = [slider1, slider2, slider3, slider4, slider5, slider6];
+				var data = {
+					labels: ["工作方法", "独立工作能力", "解决问题的能力", "责任心", "合作能力", "交流能力"],
+					datasets: [{
+						fillColor: "rgba(4,178,235,0.1)",
+						strokeColor: "rgba(4,178,235,1)",
+						pointColor: "rgba(43,55,64,1)",
+						pointStrokeColor: "#04b2eb",
+						data: datas
+					}]
+				}
+				var ctx = document.getElementById("myChart").getContext("2d");
+				document.getElementById("fname").innerHTML = '<p><span style="font-size: 1.4em;font-weight: bold;">' + url.split("&name=")[1] + '</span></p><p><span>' + url.split("&name=")[0].split("?number=")[1] + '</span></p>'
+				window.myRadar = new Chart(ctx).Radar(data);
+
+				$("#myTest").addClass("shut-display");
+			}
+		</script>
+	</head>
+
+	<body>
+		<div data-role="page" id="page">
+			<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit header-bg">
+				<h1 class="ui-title" role="heading" aria-level="1">能力公示</h1>
+				<a href="#" data-rel="back" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Back</a>
+			</div>
+
+			<div id="content" data-role="content" style="padding:0em;">
+				<div class="zx-bg-width  zx-bg-padding">
+					<div class="zx-bg-width zx-bg-margin">
+						<div class="zx-tx-bg"></div>
+					</div>
+					<div id="fname" class="zx-bg-width zx-bg-margin" style="text-align: center;">
+
+					</div>
+					<div class="ui-grid-solo">
+						<div data-role="collapsible" id="myTest">
+							<h1>自我测评</h1>
+							<p>
+								<div class="ui-field-contain">
+									<label for="slider-1">工作方法:</label>
+									<input name="slider-1" id="slider-1" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<div class="ui-field-contain">
+									<label for="slider-1">独立工作能力:</label>
+									<input name="slider-1" id="slider-2" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<div class="ui-field-contain">
+									<label for="slider-1">解决问题的能力:</label>
+									<input name="slider-1" id="slider-3" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<div class="ui-field-contain">
+									<label for="slider-1">责任心:</label>
+									<input name="slider-1" id="slider-4" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<div class="ui-field-contain">
+									<label for="slider-1">合作能力:</label>
+									<input name="slider-1" id="slider-5" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<div class="ui-field-contain">
+									<label for="slider-1">交流能力:</label>
+									<input name="slider-1" id="slider-6" value="0" min="0" max="100" data-highlight="true" type="range">
+								</div>
+								<button class="shut-btn ui-btn ui-btn-b" onclick="submits()">提交</button>
+							</p>
+						</div>
+					</div>
+					<div data-corners="true" class="zx-bg-width zx-can-bord zx-text">
+						<canvas id="myChart" width="300" height="250"></canvas>
+					</div>
+				</div>
+				<div class="zx-bg-width  zx-bg-padding">
+					<p></p>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div class="ui-grid-b">
+					<div class="ui-block-a text-c icon-fover">
+						<div class="ui-grid-solo  footer-p">
+							<div class="ui-block-a">
+								<img src="css/images/footer/Home.png" class="footer-icon">
+							</div>
+							<div class="ui-block-a">
+								<span>首页</span>
+							</div>
+						</div>
+					</div>
+					<div class="ui-block-b text-c icon-fover">
+						<div class="ui-grid-solo footer-p">
+							<div class="ui-block-a">
+								<img src="css/images/footer/Bookmark.png" class="footer-icon">
+							</div>
+							<div class="ui-block-a">
+								<span>资源库</span>
+							</div>
+						</div>
+					</div>
+					<div class="ui-block-c text-c icon-fover">
+						<div class="ui-grid-solo footer-p">
+							<div class="ui-block-a">
+								<img src="css/images/footer/User.png" class="footer-icon">
+							</div>
+							<div class="ui-block-a">
+								<span>个人中心</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="popup" id="popupBasic" data-overlay-theme="b" data-theme="b" style="min-width: 3em;padding: 1em;">
+				<ul id="listes" data-role="listview" data-filter="true" data-filter-placeholder="搜索" data-inset="true" >
+
+				</ul>
+			</div>
+		</div>
+		<!--/page结束-->
+	</body>
+
+</html>
