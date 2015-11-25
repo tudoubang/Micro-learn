@@ -70,7 +70,7 @@
 
 	<body>
 		<div data-role="page" id="page">
-			<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit header-bg">
+			<div data-role="header" data-tap-toggle="false" data-position="fixed" role="banner" class="ui-header ui-bar-inherit header-bg">
 				<h1 class="ui-title" role="heading" aria-level="1">能力公示</h1>
 				<a href="#" data-rel="back" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Back</a>
 			</div>
@@ -123,9 +123,9 @@
 					<p></p>
 				</div>
 			</div>
-			<div data-role="footer" data-position="fixed">
+			<div data-role="footer" data-tap-toggle="false"  data-position="fixed">
 				<div class="ui-grid-b">
-					<div class="ui-block-a text-c icon-fover">
+					<div class="ui-block-a text-c icon-fover" onclick="menuOpen('index')">
 						<div class="ui-grid-solo  footer-p">
 							<div class="ui-block-a">
 								<img src="css/images/footer/Home.png" class="footer-icon">
@@ -135,7 +135,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="ui-block-b text-c icon-fover">
+					<div class="ui-block-b text-c icon-fover" onclick="menuOpen('file')">
 						<div class="ui-grid-solo footer-p">
 							<div class="ui-block-a">
 								<img src="css/images/footer/Bookmark.png" class="footer-icon">
@@ -145,7 +145,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="ui-block-c text-c icon-fover">
+					<div class="ui-block-c text-c icon-fover" onclick="menuOpen('my')">
 						<div class="ui-grid-solo footer-p">
 							<div class="ui-block-a">
 								<img src="css/images/footer/User.png" class="footer-icon">
@@ -156,6 +156,15 @@
 						</div>
 					</div>
 				</div>
+				<script>
+					function menuOpen(urls){
+						if(urls === "file"){
+							window.location.href = "http://2011jpk.nxgs.edu.cn/yjhx"
+						}else{
+							window.location.href = urls + ".html"
+						}
+					}
+				</script>
 			</div>
 			<div data-role="popup" id="popupBasic" data-overlay-theme="b" data-theme="b" style="min-width: 3em;padding: 1em;">
 				<ul id="listes" data-role="listview" data-filter="true" data-filter-placeholder="搜索" data-inset="true" >

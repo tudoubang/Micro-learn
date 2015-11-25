@@ -123,7 +123,7 @@
 
     <body>
         <div data-role="page" id="items">
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-tap-toggle="false" data-position="fixed">
                 <h1>微考试 - 第1关</h1>
                  <a href="#" data-rel="back" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Back</a>
                  <a href="#logs" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="check" onclick="formes()">交卷</a>
@@ -149,39 +149,48 @@
                     </div>
                 </div>
             </div>
-            <div data-role="footer" data-position="fixed">
-              <div class="ui-grid-b">
-                <div class="ui-block-a text-c icon-fover">
-                  <div class="ui-grid-solo  footer-p">
-                    <div class="ui-block-a">
-                      <img src="css/images/footer/Home.png" class="footer-icon">
+            <div data-role="footer" data-tap-toggle="false" data-position="fixed">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a text-c icon-fover" onclick="menuOpen('index')">
+                        <div class="ui-grid-solo  footer-p">
+                            <div class="ui-block-a">
+                                <img src="css/images/footer/Home.png" class="footer-icon">
+                            </div>
+                            <div class="ui-block-a">
+                                <span>首页</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ui-block-a">
-                      <span>首页</span>
+                    <div class="ui-block-b text-c icon-fover" onclick="menuOpen('file')">
+                        <div class="ui-grid-solo footer-p">
+                            <div class="ui-block-a">
+                                <img src="css/images/footer/Bookmark.png" class="footer-icon">
+                            </div>
+                            <div class="ui-block-a">
+                                <span>资源库</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div class="ui-block-c text-c icon-fover" onclick="menuOpen('my')">
+                        <div class="ui-grid-solo footer-p">
+                            <div class="ui-block-a">
+                                <img src="css/images/footer/User.png" class="footer-icon">
+                            </div>
+                            <div class="ui-block-a">
+                                <span>个人中心</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ui-block-b text-c icon-fover">
-                  <div class="ui-grid-solo footer-p">
-                    <div class="ui-block-a">
-                      <img src="css/images/footer/Bookmark.png" class="footer-icon">
-                    </div>
-                    <div class="ui-block-a">
-                      <span>资源库</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="ui-block-c text-c icon-fover">
-                  <div class="ui-grid-solo footer-p">
-                    <div class="ui-block-a">
-                      <img src="css/images/footer/User.png" class="footer-icon">
-                    </div>
-                    <div class="ui-block-a">
-                      <span>个人中心</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <script>
+                    function menuOpen(urls){
+                        if(urls === "file"){
+                            window.location.href = "http://2011jpk.nxgs.edu.cn/yjhx"
+                        }else{
+                            window.location.href = urls + ".html"
+                        }
+                    }
+                </script>
             </div>
         </div>
         <!--/page结束-->

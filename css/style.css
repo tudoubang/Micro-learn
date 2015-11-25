@@ -279,3 +279,16 @@ body{
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
 }
+
+
+/* studyMenu html  -------------------------------------*/
+.menu{
+    margin:.2em 0;
+}
+.menu-box{
+    margin: .5em;
+}
+.menu-img{
+    height:5em;
+}
+/* studyMenu html  -------------------------------------*/
